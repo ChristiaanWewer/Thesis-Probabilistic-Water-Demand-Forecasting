@@ -13,8 +13,8 @@ To set up and use this project, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/water-demand-forecasting.git
-   cd water-demand-forecasting
+   git clone https://github.com/your-username/thesis-probabilistic-water-demand-forecasting.git
+   cd thesis-probabilistic-water-demand-forecasting
    ```
 
 2. **Install the required dependencies**:
@@ -28,16 +28,6 @@ To set up and use this project, follow these steps:
 
 The codebase is structured as follows, with all code well-commented for easier understanding:
 
-### `data/` 📊
-
-This folder contains subfolders for managing data at various stages of the pipeline:
-- **`raw/`**: Stores the raw data from the [Battle of Water Demand](https://wdsa-ccwi2024.it/battle-of-water-networks/).
-- **`processed/`**: Contains:
-  - Results from the naive model.
-  - Splits for training, validation, and testing.
-  - Scalers used for normalization.
-- **`sequences/`**: Stores the sequences generated for training the neural network models.
-
 ### `data_investigation/` 🔍
 
 Contains notebooks and utility files for data analysis and preparation:
@@ -49,6 +39,17 @@ Contains notebooks and utility files for data analysis and preparation:
   - Optionally creates one-hot encoded features.
 - **`data_investigation.ipynb`**: Includes the data analysis conducted for the thesis.
 - **`utils.py`**: Helper functions for sequence creation.
+
+### `data/` 📊
+
+This folder contains subfolders for managing data at various stages of the pipeline:
+- **`raw/`**: Stores the raw data from the [Battle of Water Demand](https://wdsa-ccwi2024.it/battle-of-water-networks/).
+- **`processed/`**: Contains After running notebooks from the data_investigation folder:
+  - Results from the naive model.
+  - Splits for training, validation, and testing.
+  - Scalers used for normalization.
+
+- **`sequences/`**: Stores the sequences generated for training the neural network models.
 
 ### `deterministic_models/` 🤖
 
