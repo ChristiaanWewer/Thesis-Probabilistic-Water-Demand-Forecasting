@@ -22,6 +22,10 @@ To set up and use this project, follow these steps:
    pip install -r requirements.txt
    ```
 
+3. **Model parameters and output data**
+To use the trained models parameters and data from my thesis, please unzip the .zip file from [.Zip files from Drive](https://drive.google.com/file/d/1eb5StW3bvmGErvs8CqATPzuuaF0h0_q1/view?usp=drive_link)
+
+
 ---
 
 ## 📂 Codebase Overview
@@ -30,26 +34,27 @@ The codebase is structured as follows, with all code well-commented for easier u
 
 ### `data_investigation/` 🔍
 
-Contains notebooks and utility files for data analysis and preparation:
-- **`benchmark_model.ipynb`**: Implementation of the benchmark model used in this research.
+Contains notebooks and utility files for data analysis and preparation, should be run in the following order:
+- **`make_splits.ipynb`**: Splits the data in training, validation and testing splits.
 - **`create_sequences.ipynb`**: 
   - Generates sequences for model training from any Pandas DataFrame.
   - Converts data into PyTorch tensors using dictionaries for training, a key is a (potential) feature in the training data.
   - Can turn any Pandas Column into a feature
   - Optionally creates one-hot encoded features.
+- **`benchmark_model.ipynb`**: Implementation of the benchmark model used in this research.
 - **`data_investigation.ipynb`**: Includes the data analysis conducted for the thesis.
 - **`utils.py`**: Helper functions for sequence creation.
+
 
 ### `data/` 📊
 
 This folder contains subfolders for managing data at various stages of the pipeline:
 - **`raw/`**: Stores the raw data from the [Battle of Water Demand](https://wdsa-ccwi2024.it/battle-of-water-networks/).
-- **`processed/`**: Contains After running notebooks from the data_investigation folder:
+- **`processed/`**: Contains After running `make_splits.ipynb` and `benchmark_model.ipynb` from the data_investigation folder:
   - Results from the naive model.
   - Splits for training, validation, and testing.
   - Scalers used for normalization.
-
-- **`sequences/`**: Stores the sequences generated for training the neural network models.
+- **`sequences/`**: Stores the sequences generated for training the neural network models, present after running `create_sequences.ipynb`.
 
 ### `deterministic_models/` 🤖
 
@@ -89,10 +94,10 @@ The core codebase for model training and evaluation:
     - Quantile Loss (Pinball Loss).
     - Negative Likelihood Loss (used for Mixture Density Networks).
 
----
 
 ### `figures/` 📷
 
 This folder contains visualizations and plots used in the thesis. It includes:
 - Final plots generated during the analysis.
 
+---
