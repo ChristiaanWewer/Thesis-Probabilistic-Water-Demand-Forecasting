@@ -22,8 +22,8 @@ To set up and use this project, follow these steps:
    pip install -r requirements.txt
    ```
 
-3. **Model parameters and output data**
-To use the trained models parameters and data from my thesis, please unzip the .zip file from [.Zip files from Drive](https://drive.google.com/file/d/1eb5StW3bvmGErvs8CqATPzuuaF0h0_q1/view?usp=drive_link)
+3. **Model parameters and output data**:
+```To use the trained models parameters and output data from my thesis, please unzip the .zip file from [.Zip files from Drive](https://drive.google.com/file/d/1eb5StW3bvmGErvs8CqATPzuuaF0h0_q1/view?usp=drive_link) in the folder show_results/results```
 
 
 ---
