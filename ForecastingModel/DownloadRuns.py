@@ -179,7 +179,7 @@ def get_results_pt_model_per_dma(project,
         # load validation data
         x_val = torch.load(os.path.join(data_folder,dataset, 'val_x_{}_{}.pt'.format(dataset, dma)))
         y_val = torch.load(os.path.join(data_folder, dataset,'val_y_{}_{}.pt'.format(dataset, dma)))
-        naive_val = torch.load(os.path.join(data_folder, dataset,'val_naive_final_{}_{}.pt'.format(dataset, dma)))
+        naive_val = torch.load(os.path.join(data_folder, dataset,'val_naive_{}_{}.pt'.format(dataset, dma)))
 
         # load scalers
         scale1 = scaler.scale_[i]
@@ -217,7 +217,7 @@ def get_results_pt_model_per_dma(project,
         # load test data
         x_test_dma = torch.load(os.path.join(data_folder, dataset, 'test_x_{}_{}.pt'.format(dataset, dma)), map_location=device)
         y_test_dma = torch.load(os.path.join(data_folder, dataset, 'test_y_{}_{}.pt'.format(dataset, dma)), map_location=device)
-        naive_test_dma = torch.load(os.path.join(data_folder, dataset, 'test_naive_final_{}_{}.pt'.format(dataset, dma)), map_location=device)
+        naive_test_dma = torch.load(os.path.join(data_folder, dataset, 'test_naive_{}_{}.pt'.format(dataset, dma)), map_location=device)
 
         # Predict model on the validation set
         y_pred_val_dma = FC.predict(x_val, batch_size=256)
@@ -343,7 +343,7 @@ def get_results_pt_dma_together(project,
     name = str(model).split('.')[-1][:-2]
     x_val = [torch.load(os.path.join(data_folder,dataset, 'val_x_{}_{}.pt'.format(dataset, dma)), map_location=device) for dma in DMAs]
     y_val = [torch.load(os.path.join(data_folder, dataset,'val_y_{}_{}.pt'.format(dataset, dma)), map_location=device) for dma in DMAs]
-    naive_val = [torch.load(os.path.join(data_folder, dataset,'val_naive_final_{}_{}.pt'.format(dataset, dma)), map_location=device) for dma in DMAs]
+    naive_val = [torch.load(os.path.join(data_folder, dataset,'val_naive_{}_{}.pt'.format(dataset, dma)), map_location=device) for dma in DMAs]
 
     # load the scaler
     scaler = torch.load(location_scaler, map_location=device)
@@ -405,12 +405,12 @@ def get_results_pt_dma_together(project,
         # load test data
         x_test_dma = torch.load(os.path.join(data_folder, dataset, 'test_x_{}_{}.pt'.format(dataset, dma)), map_location=device)
         y_test_dma = torch.load(os.path.join(data_folder, dataset, 'test_y_{}_{}.pt'.format(dataset, dma)), map_location=device)
-        naive_test_dma = torch.load(os.path.join(data_folder, dataset, 'test_naive_final_{}_{}.pt'.format(dataset, dma)), map_location=device)
+        naive_test_dma = torch.load(os.path.join(data_folder, dataset, 'test_naive_{}_{}.pt'.format(dataset, dma)), map_location=device)
         
         # load validationd ata
         x_val = torch.load(os.path.join(data_folder,dataset, 'val_x_{}_{}.pt'.format(dataset, dma)))
         y_val = torch.load(os.path.join(data_folder, dataset,'val_y_{}_{}.pt'.format(dataset, dma)))
-        naive_val = torch.load(os.path.join(data_folder, dataset,'val_naive_final_{}_{}.pt'.format(dataset, dma)))
+        naive_val = torch.load(os.path.join(data_folder, dataset,'val_naive_{}_{}.pt'.format(dataset, dma)))
 
         # predict the validation data and predict the test data
         y_pred_val_dma = FC.predict(x_val, batch_size=256)
@@ -607,12 +607,12 @@ def get_results_prob(
         # load test data
         test_data_dma_x = torch.load(f'../data/sequences/24h_out_all_no_weather/test_x_24h_out_all_no_weather_{dma}.pt', map_location='cpu')
         test_data_dma_y = torch.load(f'../data/sequences/24h_out_all_no_weather/test_y_24h_out_all_no_weather_{dma}.pt', map_location='cpu')
-        naive_test = torch.load(os.path.join(data_folder, dataset,'test_naive_final_{}_{}.pt'.format(dataset, dma)))
+        naive_test = torch.load(os.path.join(data_folder, dataset,'test_naive_{}_{}.pt'.format(dataset, dma)))
 
         # load val data        
         val_data_dma_x = torch.load(f'../data/sequences/24h_out_all_no_weather/val_x_24h_out_all_no_weather_{dma}.pt', map_location='cpu')
         val_data_dma_y = torch.load(f'../data/sequences/24h_out_all_no_weather/val_y_24h_out_all_no_weather_{dma}.pt', map_location='cpu')
-        naive_val = torch.load(os.path.join(data_folder, dataset,'val_naive_final_{}_{}.pt'.format(dataset, dma)))
+        naive_val = torch.load(os.path.join(data_folder, dataset,'val_naive_{}_{}.pt'.format(dataset, dma)))
 
         # get predictions of probabilistic model
         if config['probabilistic_method'] == 'quantile_regression':
